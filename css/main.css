@@ -92,7 +92,7 @@ iframe {
 a, a:focus, a:hover {
   text-decoration: none;
   outline: 0;
-  color: rgba(195, 202, 226, 1);
+  color: #777777;
 }
 
 .btn.active.focus,
@@ -952,7 +952,7 @@ td, th {
 }
 
 .default-header nav .main-menu a:hover {
-  color: #4169e1;
+  color: #aeaeae;
 }
 
 .default-header nav .mobile-btn {
