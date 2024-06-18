@@ -92,7 +92,7 @@ iframe {
 a, a:focus, a:hover {
   text-decoration: none;
   outline: 0;
-  color: #777777;
+  color: rgba(195, 202, 226, 1);
 }
 
 .btn.active.focus,
