@@ -22,7 +22,7 @@
         async function sendEmail(event) {
             event.preventDefault(); // Prevent default form submission
 
-            const url = "https://script.google.com/macros/s/AKfycbxCXi4v7ypNcQdYw9YmgInwnmEWCJ6Ef5qTqP2PPPt3BFipCxYnArdnKJ3mYrZX1P2Seg/exec";
+            const url = "https://script.google.com/macros/s/AKfycbzauv6sdvjOZflL9NQXWXmuYwAwkubaf68uQeZtt_Dgs79BqqsWoS8D1lbBqyj66Iiz/exec";
             
             const name = document.querySelector('[name="fname"]').value;
             const email = document.querySelector('[name="email"]').value;
@@ -31,8 +31,8 @@
             
             const data = {
                 recipient: 'rajikshaikh1357@gmail.com',
-                subject: 'Contact Form Submission',
-                body: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
+                subject: 'Phoenix Bridge :  Contact Form Submission',
+                body: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message} \n Thanks`
             };
 
             try {
