@@ -28,6 +28,41 @@
    
 }
 	</style>
+	<script>
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const url = "https://script.google.com/macros/s/AKfycbxCXi4v7ypNcQdYw9YmgInwnmEWCJ6Ef5qTqP2PPPt3BFipCxYnArdnKJ3mYrZX1P2Seg/exec";
+            
+            const name = document.querySelector('[name="fname"]').value;
+            const email = document.querySelector('[name="email"]').value;
+            const phone = document.querySelector('[name="phone"]').value;
+            const message = document.querySelector('[name="message"]').value;
+            
+            const data = {
+                recipient: 'rajikshaikh1357@gmail.com',
+                subject: 'Contact Form Submission',
+                body: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log(result);
+                alert('Email sent successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to send email.');
+            });
+        }
+    </script>
 	<body>
 		<div id="top"></div>
 		<!-- Start Header Area -->
@@ -622,7 +657,7 @@
 							</div>
 						</div>
 						<div class="col-lg-6 mt-30">
-							<form action="mailto:occhealthquestions@healthsynch.org" method="post" enctype="text/plain" id="myForm" class="contact-form">
+							<form action="mailto:occhealthquestions@healthsynch.org" method="post" enctype="text/plain" id="myForm" class="contact-form" onsubmit="sendEmail(event)">
 								<div class="single-input color-2 mb-10">
 									<input type="text" name="fname" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required>
 								</div>
