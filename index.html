@@ -51,6 +51,11 @@
                 const result = await response.text();
                 console.log(result);
                 alert('Email sent successfully!');
+		     document.querySelector('[name="fname"]').value = '';
+        document.querySelector('[name="email"]').value = '';
+        document.querySelector('[name="phone"]').value = '';
+        document.querySelector('[name="message"]').value = '';
+		    
             } catch (error) {
                 console.error('Error:', error);
                 alert('Failed to send email. ' + error.message);
