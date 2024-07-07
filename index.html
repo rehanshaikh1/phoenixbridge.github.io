@@ -20,46 +20,7 @@
 		<link rel="stylesheet" href="css/main.css">
 	<script>
         async function sendEmail(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const url = "https://script.google.com/macros/s/AKfycbzauv6sdvjOZflL9NQXWXmuYwAwkubaf68uQeZtt_Dgs79BqqsWoS8D1lbBqyj66Iiz/exec";
-            
-            const name = document.querySelector('[name="fname"]').value;
-            const email = document.querySelector('[name="email"]').value;
-            const phone = document.querySelector('[name="phone"]').value;
-            const message = document.querySelector('[name="message"]').value;
-            
-            const data = {
-                recipient: 'occhealthquestions@healthsynch.org',
-                subject: 'Phoenix Bridge :  Contact Form Submission',
-        body: `Sender: Phoenix Bridge\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
-            };
-
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: new URLSearchParams(data)
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const result = await response.text();
-                console.log(result);
-                alert('Email sent successfully!');
-		     document.querySelector('[name="fname"]').value = '';
-        document.querySelector('[name="email"]').value = '';
-        document.querySelector('[name="phone"]').value = '';
-        document.querySelector('[name="message"]').value = '';
-		    
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Failed to send email. ' + error.message);
-            }
+           
         }
     </script>
 	</head>
