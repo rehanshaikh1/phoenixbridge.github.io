@@ -29,7 +29,7 @@
 }
 	</style>
 	<script>
-        function sendEmail(event) {
+        async function sendEmail(event) {
             event.preventDefault(); // Prevent default form submission
 
             const url = "https://script.google.com/macros/s/AKfycbxCXi4v7ypNcQdYw9YmgInwnmEWCJ6Ef5qTqP2PPPt3BFipCxYnArdnKJ3mYrZX1P2Seg/exec";
@@ -45,22 +45,26 @@
                 body: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
             };
 
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams(data)
-            })
-            .then(response => response.text())
-            .then(result => {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.text();
                 console.log(result);
                 alert('Email sent successfully!');
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error:', error);
-                alert('Failed to send email.');
-            });
+                alert('Failed to send email. ' + error.message);
+            }
         }
     </script>
 	<body>
